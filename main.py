@@ -8,8 +8,8 @@ class Player:
         self.nationality = nationality
         self.age = age
         self.position = position
-        self.money = {'Baixo': 1000, 'Médio': 5000, 'Alto': 10000}[money_level]
-        self.strength = random.randint(0, 100) + (self.age - 18) // 2
+        self.money = {'Baixo': random.randint(0, 1000), 'Médio': random.randint(3000, 5000), 'Alto': random.randint(8000, 10000)}[money_level]
+        self.strength = random.randint(5, 15)
         self.popularity = random.randint(0, 100)
         self.happiness = 100
         self.attributes = {'Força': 50, 'Chute': 50, 'Cabeceio': 50}
@@ -17,6 +17,10 @@ class Player:
         self.statistics = {'Partidas': 0, 'Gols': 0, 'Assistências': 0}
         self.team = self.assign_initial_team()
         self.year = 2021
+        if self.age < 20:
+            self.strength += random.randint(0, 60)
+        elif self.age > 20:
+            self.strength += random.randint(20, 65)
 
     def assign_initial_team(self):
         # Simplifica a atribuição do time inicial com base na nacionalidade
@@ -47,10 +51,27 @@ class Player:
         # Diminui a força com a idade
         if self.age > 30:
             self.strength -= random.randint(1, 3)
-        # Simula as estatísticas da temporada
-        self.statistics['Partidas'] += random.randint(20, 40)
-        self.statistics['Gols'] += random.randint(0, 30)
-        self.statistics['Assistências'] += random.randint(0, 20)
+        # Simula as estatísticas da temporada com base na força e posição do jogador
+        partidas = random.randint(20, 40)
+        gols = 0
+        assistencias = 0
+
+        if self.position == 'Goleiro':
+            gols = random.randint(0, 2) if self.strength > 50 else random.randint(0, 1)
+            assistencias = random.randint(0, 5) if self.strength > 50 else random.randint(0, 3)
+        elif self.position == 'Defensor':
+            gols = random.randint(0, 5) if self.strength > 50 else random.randint(0, 3)
+            assistencias = random.randint(0, 10) if self.strength > 50 else random.randint(0, 5)
+        elif self.position == 'Meio-campista':
+            gols = random.randint(0, 10) if self.strength > 50 else random.randint(0, 5)
+            assistencias = random.randint(0, 15) if self.strength > 50 else random.randint(0, 10)
+        elif self.position == 'Atacante':
+            gols = random.randint(0, 30) if self.strength > 50 else random.randint(0, 20)
+            assistencias = random.randint(0, 10) if self.strength > 50 else random.randint(0, 5)
+
+        self.statistics['Partidas'] += partidas
+        self.statistics['Gols'] += gols
+        self.statistics['Assistências'] += assistencias
         # Atualiza a popularidade
         self.popularity += random.randint(-5, 5)
         self.popularity = max(0, min(100, self.popularity))
@@ -139,7 +160,15 @@ class CareerSimulator(tk.Tk):
 
     def advance_year(self):
         self.player.advance_year()
-        messagebox.showinfo("Ano Avançado", f"Agora é o ano {self.player.year}. Você tem {self.player.age} anos.")
+        stats = self.player.statistics
+        stats_message = (
+            f"Partidas: {stats['Partidas']}\n"
+            f"Gols: {stats['Gols']}\n"
+            f"Assistências: {stats['Assistências']}\n"
+            f"Popularidade: {self.player.popularity}\n"
+            f"Felicidade: {self.player.happiness}"
+        )
+        messagebox.showinfo("Ano Avançado", f"Agora é o ano {self.player.year}. Você tem {self.player.age} anos.\n\nEstatísticas do Ano:\n{stats_message}")
         # Verifica aposentadoria
         if self.player.age >= 35:
             messagebox.showinfo("Aposentadoria", "Você se aposentou da carreira de jogador!")
