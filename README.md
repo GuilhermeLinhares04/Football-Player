@@ -97,3 +97,7 @@ Funcionalidades atuais e futuras:
 - Atributos mentais: Determinação (depende das relações do jogador), inteligência, agressividade (afeta na nota média), liderança (chance de ser capitão)
 - Opção para utilizar intensificadores ilegais para melhorar atributos do jogador, mas com riscos de ser pego e punido
 - Mostrar desempenho do time do jogador em competições, como a liga nacional, copas nacionais e internacionais
+- Interações com o treinador, como pedir renovação de contrato, mais tempo de jogo, mudança de posição, transferência, empréstimo, entre outros
+- Simulação do mundo do futebol a partir do ano escolhido, com base na força dos times e eventos aleatórios
+- Simular mundo do futebol caso o ano escolhido seja diferente de 2024. Quando mais distante do ano atual, mais diferente será o mundo do futebol
+- Relação com a torcida do time, que pode afetar na popularidade do jogador, nas propostas de patrocínio, na felicidade e no desempenho em campo
