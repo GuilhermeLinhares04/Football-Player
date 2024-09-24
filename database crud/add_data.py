@@ -1,7 +1,7 @@
 import sqlite3
 
 # Connect to the database (or create it if it doesn't exist)
-conn = sqlite3.connect('db.db')
+conn = sqlite3.connect('../db.db')
 cursor = conn.cursor()
 
 # # Add countries

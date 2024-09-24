@@ -24,7 +24,7 @@ class Player:
         
         # Atributos iniciais com base na posição
         if self.position == 'Goleiro':
-            self.attributes['Reflexo'] = random.randint(50, 100)
+            self.attributes['Reflexo'] = random.randint(50, 100) 
             self.attributes['Posicionamento de goleiro'] = random.randint(50, 100)
             self.attributes['Elasticidade'] = random.randint(50, 100)
             self.attributes['Marcação'] = random.randint(0, 50)
@@ -335,13 +335,6 @@ class Player:
                 self.attributes[focus] = 100
             if self.strength > 100:
                 self.strength = 100
-                
-    # def calculate_play_chance(self):
-    #     # Calcula a chance de jogar com base na força do jogador e do time
-    #     player_strength = self.strength / 100
-    #     team_strength = self.team_strength / 100
-    #     chance = (player_strength * 0.6) + (team_strength * 0.4)
-    #     return min(chance, 1)
 
     def simulate_season_statistics(self):
         # Simula as estatísticas do jogador para a temporada atual

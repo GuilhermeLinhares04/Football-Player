@@ -1,13 +1,14 @@
 import sqlite3
 
 # Connect to the database (or create it if it doesn't exist)
-conn = sqlite3.connect('db.db')
+conn = sqlite3.connect('../db.db')
 cursor = conn.cursor()
 
-# Delete teams with id bigger or equal to 11
+# Add facilities column to the teams table
 cursor.execute('''
-DELETE FROM teams WHERE id >= 11
+ALTER TABLE teams ADD COLUMN facilities INTEGER
 ''')
+
 
 # Commit the changes and close the connection
 conn.commit()
