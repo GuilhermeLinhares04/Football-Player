@@ -4,36 +4,11 @@ import sqlite3
 conn = sqlite3.connect('db.db')
 cursor = conn.cursor()
 
-# Create the 'continents' table
+# Add facilities column to the teams table
 cursor.execute('''
-CREATE TABLE IF NOT EXISTS continents (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    name TEXT NOT NULL
-)
+ALTER TABLE teams ADD COLUMN facilities INTEGER
 ''')
 
-# Create the 'countries' table
-cursor.execute('''
-CREATE TABLE IF NOT EXISTS countries (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    continent_id INTEGER,
-    name TEXT NOT NULL,
-    strength INTEGER NOT NULL,
-    FOREIGN KEY (continent_id) REFERENCES continents (id)
-)
-''')
-
-# Create the 'teams' table
-cursor.execute('''
-CREATE TABLE IF NOT EXISTS teams (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    name TEXT NOT NULL,
-    country_id INTEGER,
-    strength INTEGER NOT NULL,
-    money INTEGER NOT NULL,
-    FOREIGN KEY (country_id) REFERENCES countries (id)
-)
-''')
 
 # Commit the changes and close the connection
 conn.commit()

@@ -4,9 +4,9 @@ import sqlite3
 conn = sqlite3.connect('db.db')
 cursor = conn.cursor()
 
-# Delete countries table
+# Delete teams with id bigger or equal to 11
 cursor.execute('''
-DROP TABLE countries
+DELETE FROM teams WHERE id >= 11
 ''')
 
 # Commit the changes and close the connection

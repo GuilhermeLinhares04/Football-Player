@@ -101,3 +101,4 @@ Funcionalidades atuais e futuras:
 - Simulação do mundo do futebol a partir do ano escolhido, com base na força dos times e eventos aleatórios
 - Simular mundo do futebol caso o ano escolhido seja diferente de 2024. Quando mais distante do ano atual, mais diferente será o mundo do futebol
 - Relação com a torcida do time, que pode afetar na popularidade do jogador, nas propostas de patrocínio, na felicidade e no desempenho em campo
+- Relação com colegas de time, que pode afetar na popularidade, felicidade e desempenho em campo

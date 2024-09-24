@@ -13,7 +13,7 @@ class Player:
         self.nationality = nationality
         self.age = age
         self.position = position
-        self.attributes = {'Reflexo': 0, 'Posicionamento': 0, 'Marcação': 0, 'Desarme': 0, 'Passe': 0, "Visão": 0, 'Controle de Bola': 0, 'Drible': 0, 'Força': 0, 'Chute': 0, 'Cabeceio': 0, 'Velocidade': 0}
+        self.attributes = {'Reflexo': 0, 'Posicionamento de goleiro': 0, 'Elasticidade': 0, 'Marcação': 0, 'Desarme': 0, 'Passe curto': 0, 'Passe longo': 0, 'Visão': 0, 'Controle de Bola': 0, 'Drible': 0, 'Força': 0, 'Chute': 0, 'Cabeceio': 0, 'Velocidade': 0, 'Técnica': 0, 'Posicionamento em campo': 0, 'Aptidão física': 0}
         self.money = {'Baixo': random.randint(0, 2000), 'Médio': random.randint(3000, 6000), 'Alto': random.randint(8000, 10000)}[money_level]
         self.team = team
         self.popularity = random.randint(0, 100)
@@ -23,108 +23,127 @@ class Player:
         # Atributos iniciais com base na posição
         if self.position == 'Goleiro':
             self.attributes['Reflexo'] = random.randint(50, 100)
-            self.attributes['Posicionamento'] = random.randint(50, 100)
-            self.attributes['Força'] = random.randint(50, 100)
-            self.attributes['Chute'] = random.randint(50, 100)
-            self.attributes['Cabeceio'] = random.randint(50, 100)
+            self.attributes['Posicionamento de goleiro'] = random.randint(50, 100)
+            self.attributes['Elasticidade'] = random.randint(50, 100)
             self.attributes['Marcação'] = random.randint(0, 50)
             self.attributes['Desarme'] = random.randint(0, 50)
-            self.attributes['Passe'] = random.randint(0, 50)
+            self.attributes['Passe curto'] = random.randint(0, 50)
+            self.attributes['Passe longo'] = random.randint(0, 50)
             self.attributes['Visão'] = random.randint(0, 50)
             self.attributes['Controle de Bola'] = random.randint(0, 50)
             self.attributes['Drible'] = random.randint(0, 50)
+            self.attributes['Força'] = random.randint(0, 50)
+            self.attributes['Chute'] = random.randint(0, 50)
+            self.attributes['Cabeceio'] = random.randint(0, 50)
             self.attributes['Velocidade'] = random.randint(0, 50)
+            self.attributes['Técnica'] = random.randint(0, 50)
+            self.attributes['Posicionamento em campo'] = random.randint(0, 50)
+            self.attributes['Aptidão física'] = random.randint(0, 50)
         elif self.position == 'Lateral':
             self.attributes['Marcação'] = random.randint(50, 100)
             self.attributes['Desarme'] = random.randint(50, 100)
+            self.attributes['Passe curto'] = random.randint(50, 100)
+            self.attributes['Passe longo'] = random.randint(50, 100)
+            self.attributes['Visão'] = random.randint(50, 100)
+            self.attributes['Controle de Bola'] = random.randint(50, 100)
+            self.attributes['Drible'] = random.randint(50, 100)
             self.attributes['Força'] = random.randint(50, 100)
             self.attributes['Chute'] = random.randint(50, 100)
             self.attributes['Cabeceio'] = random.randint(50, 100)
-            self.attributes['Reflexo'] = random.randint(0, 50)
-            self.attributes['Posicionamento'] = random.randint(0, 50)
-            self.attributes['Passe'] = random.randint(0, 50)
-            self.attributes['Visão'] = random.randint(0, 50)
-            self.attributes['Controle de Bola'] = random.randint(0, 50)
-            self.attributes['Drible'] = random.randint(0, 50)
             self.attributes['Velocidade'] = random.randint(50, 100)
+            self.attributes['Técnica'] = random.randint(50, 100)
+            self.attributes['Posicionamento em campo'] = random.randint(50, 100)
+            self.attributes['Aptidão física'] = random.randint(50, 100)
         elif self.position == 'Zagueiro':
             self.attributes['Marcação'] = random.randint(50, 100)
             self.attributes['Desarme'] = random.randint(50, 100)
+            self.attributes['Passe curto'] = random.randint(50, 100)
+            self.attributes['Passe longo'] = random.randint(50, 100)
+            self.attributes['Visão'] = random.randint(50, 100)
+            self.attributes['Controle de Bola'] = random.randint(50, 100)
+            self.attributes['Drible'] = random.randint(50, 100)
             self.attributes['Força'] = random.randint(50, 100)
             self.attributes['Chute'] = random.randint(50, 100)
             self.attributes['Cabeceio'] = random.randint(50, 100)
-            self.attributes['Reflexo'] = random.randint(0, 50)
-            self.attributes['Posicionamento'] = random.randint(0, 50)
-            self.attributes['Passe'] = random.randint(0, 50)
-            self.attributes['Visão'] = random.randint(0, 50)
-            self.attributes['Controle de Bola'] = random.randint(0, 50)
-            self.attributes['Drible'] = random.randint(0, 50)
-            self.attributes['Velocidade'] = random.randint(0, 50)
+            self.attributes['Velocidade'] = random.randint(50, 100)
+            self.attributes['Técnica'] = random.randint(50, 100)
+            self.attributes['Posicionamento em campo'] = random.randint(50, 100)
+            self.attributes['Aptidão física'] = random.randint(50, 100)
         elif self.position == 'Volante':
             self.attributes['Marcação'] = random.randint(50, 100)
             self.attributes['Desarme'] = random.randint(50, 100)
+            self.attributes['Passe curto'] = random.randint(50, 100)
+            self.attributes['Passe longo'] = random.randint(50, 100)
+            self.attributes['Visão'] = random.randint(50, 100)
+            self.attributes['Controle de Bola'] = random.randint(50, 100)
+            self.attributes['Drible'] = random.randint(50, 100)
             self.attributes['Força'] = random.randint(50, 100)
             self.attributes['Chute'] = random.randint(50, 100)
             self.attributes['Cabeceio'] = random.randint(50, 100)
-            self.attributes['Reflexo'] = random.randint(0, 50)
-            self.attributes['Posicionamento'] = random.randint(0, 50)
-            self.attributes['Passe'] = random.randint(0, 50)
-            self.attributes['Visão'] = random.randint(0, 50)
-            self.attributes['Controle de Bola'] = random.randint(0, 50)
-            self.attributes['Drible'] = random.randint(0, 50)
-            self.attributes['Velocidade'] = random.randint(0, 50)
+            self.attributes['Velocidade'] = random.randint(50, 100)
+            self.attributes['Técnica'] = random.randint(50, 100)
+            self.attributes['Posicionamento em campo'] = random.randint(50, 100)
+            self.attributes['Aptidão física'] = random.randint(50, 100)
         elif self.position == 'Meia-defensivo':
             self.attributes['Marcação'] = random.randint(50, 100)
             self.attributes['Desarme'] = random.randint(50, 100)
+            self.attributes['Passe curto'] = random.randint(50, 100)
+            self.attributes['Passe longo'] = random.randint(50, 100)
+            self.attributes['Visão'] = random.randint(50, 100)
+            self.attributes['Controle de Bola'] = random.randint(50, 100)
+            self.attributes['Drible'] = random.randint(50, 100)
             self.attributes['Força'] = random.randint(50, 100)
             self.attributes['Chute'] = random.randint(50, 100)
             self.attributes['Cabeceio'] = random.randint(50, 100)
-            self.attributes['Reflexo'] = random.randint(0, 50)
-            self.attributes['Posicionamento'] = random.randint(0, 50)
-            self.attributes['Passe'] = random.randint(0, 50)
-            self.attributes['Visão'] = random.randint(0, 50)
-            self.attributes['Controle de Bola'] = random.randint(0, 50)
-            self.attributes['Drible'] = random.randint(0, 50)
-            self.attributes['Velocidade'] = random.randint(0, 50)
-        elif self.position == 'Meia-ofensivo':
-            self.attributes['Passe'] = random.randint(50, 100)
-            self.attributes['Visão'] = random.randint(50, 100)
-            self.attributes['Controle de Bola'] = random.randint(50, 100)
-            self.attributes['Drible'] = random.randint(50, 100)
-            self.attributes['Chute'] = random.randint(50, 100)
-            self.attributes['Marcação'] = random.randint(0, 50)
-            self.attributes['Desarme'] = random.randint(0, 50)
-            self.attributes['Força'] = random.randint(0, 50)
-            self.attributes['Cabeceio'] = random.randint(0, 50)
-            self.attributes['Reflexo'] = random.randint(0, 50)
-            self.attributes['Posicionamento'] = random.randint(0, 50)
-            self.attributes['Velocidade'] = random.randint(0, 50)
-        elif self.position == 'Ponta':
-            self.attributes['Passe'] = random.randint(50, 100)
-            self.attributes['Visão'] = random.randint(50, 100)
-            self.attributes['Controle de Bola'] = random.randint(50, 100)
-            self.attributes['Drible'] = random.randint(50, 100)
-            self.attributes['Chute'] = random.randint(50, 100)
-            self.attributes['Cabeceio'] = random.randint(50, 100)
-            self.attributes['Marcação'] = random.randint(0, 50)
-            self.attributes['Desarme'] = random.randint(0, 50)
-            self.attributes['Força'] = random.randint(0, 50)
-            self.attributes['Reflexo'] = random.randint(0, 50)
-            self.attributes['Posicionamento'] = random.randint(0, 50)
             self.attributes['Velocidade'] = random.randint(50, 100)
-        elif self.position == 'Centroavante':
-            self.attributes['Passe'] = random.randint(50, 100)
+            self.attributes['Técnica'] = random.randint(50, 100)
+            self.attributes['Posicionamento em campo'] = random.randint(50, 100)
+            self.attributes['Aptidão física'] = random.randint(50, 100)
+        elif self.position == 'Meia-ofensivo':
+            self.attributes['Marcação'] = random.randint(50, 100)
+            self.attributes['Desarme'] = random.randint(50, 100)
+            self.attributes['Passe curto'] = random.randint(50, 100)
+            self.attributes['Passe longo'] = random.randint(50, 100)
             self.attributes['Visão'] = random.randint(50, 100)
             self.attributes['Controle de Bola'] = random.randint(50, 100)
             self.attributes['Drible'] = random.randint(50, 100)
-            self.attributes['Chute'] = random.randint(80, 100)
+            self.attributes['Força'] = random.randint(50, 100)
+            self.attributes['Chute'] = random.randint(50, 100)
             self.attributes['Cabeceio'] = random.randint(50, 100)
-            self.attributes['Marcação'] = random.randint(0, 50)
-            self.attributes['Desarme'] = random.randint(0, 50)
-            self.attributes['Força'] = random.randint(0, 50)
-            self.attributes['Reflexo'] = random.randint(0, 50)
-            self.attributes['Posicionamento'] = random.randint(0, 50)
-            self.attributes['Velocidade'] = random.randint(0, 50)
+            self.attributes['Velocidade'] = random.randint(50, 100)
+            self.attributes['Técnica'] = random.randint(50, 100)
+            self.attributes['Posicionamento em campo'] = random.randint(50, 100)
+            self.attributes['Aptidão física'] = random.randint(50, 100)
+        elif self.position == 'Ponta':
+            self.attributes['Marcação'] = random.randint(50, 100)
+            self.attributes['Desarme'] = random.randint(50, 100)
+            self.attributes['Passe curto'] = random.randint(50, 100)
+            self.attributes['Passe longo'] = random.randint(50, 100)
+            self.attributes['Visão'] = random.randint(50, 100)
+            self.attributes['Controle de Bola'] = random.randint(50, 100)
+            self.attributes['Drible'] = random.randint(50, 100)
+            self.attributes['Força'] = random.randint(50, 100)
+            self.attributes['Chute'] = random.randint(50, 100)
+            self.attributes['Cabeceio'] = random.randint(50, 100)
+            self.attributes['Velocidade'] = random.randint(50, 100)
+            self.attributes['Técnica'] = random.randint(50, 100)
+            self.attributes['Posicionamento em campo'] = random.randint(50, 100)
+            self.attributes['Aptidão física'] = random.randint(50, 100)
+        elif self.position == 'Centroavante':
+            self.attributes['Marcação'] = random.randint(50, 100)
+            self.attributes['Desarme'] = random.randint(50, 100)
+            self.attributes['Passe curto'] = random.randint(50, 100)
+            self.attributes['Passe longo'] = random.randint(50, 100)
+            self.attributes['Visão'] = random.randint(50, 100)
+            self.attributes['Controle de Bola'] = random.randint(50, 100)
+            self.attributes['Drible'] = random.randint(50, 100)
+            self.attributes['Força'] = random.randint(50, 100)
+            self.attributes['Chute'] = random.randint(50, 100)
+            self.attributes['Cabeceio'] = random.randint(50, 100)
+            self.attributes['Velocidade'] = random.randint(50, 100)
+            self.attributes['Técnica'] = random.randint(50, 100)
+            self.attributes['Posicionamento em campo'] = random.randint(50, 100)
+            self.attributes['Aptidão física'] = random.randint(50, 100)
         
         self.strength = self.calculate_strength()
 
@@ -140,116 +159,156 @@ class Player:
         # Pesos dos atributos por posição
         ATTRIBUTE_WEIGHTS = {
             'Goleiro': {
-                'Reflexo': 0.3,
-                'Posicionamento': 0.25,
-                'Marcação': 0.05,
-                'Desarme': 0.05,
-                'Passe': 0.05,
-                'Visão': 0.05,
-                'Controle de Bola': 0.1,
-                'Drible': 0.05,
-                'Força': 0.05,
-                'Chute': 0.05,
-                'Cabeceio': 0.0,
-                'Velocidade': 0.05
+            'Reflexo': 0.3,
+            'Posicionamento de goleiro': 0.25,
+            'Elasticidade': 0.2,
+            'Marcação': 0.05,
+            'Desarme': 0.05,
+            'Passe curto': 0.05,
+            'Passe longo': 0.05,
+            'Visão': 0.05,
+            'Controle de Bola': 0.1,
+            'Drible': 0.05,
+            'Força': 0.05,
+            'Chute': 0.05,
+            'Cabeceio': 0.0,
+            'Velocidade': 0.05,
+            'Técnica': 0.05,
+            'Posicionamento em campo': 0.05,
+            'Aptidão física': 0.05
             },
             'Lateral': {
-                'Reflexo': 0.0,
-                'Posicionamento': 0.1,
-                'Marcação': 0.15,
-                'Desarme': 0.15,
-                'Passe': 0.1,
-                'Visão': 0.05,
-                'Controle de Bola': 0.1,
-                'Drible': 0.1,
-                'Força': 0.05,
-                'Chute': 0.05,
-                'Cabeceio': 0.05,
-                'Velocidade': 0.1
+            'Reflexo': 0.0,
+            'Posicionamento de goleiro': 0.0,
+            'Elasticidade': 0.0,
+            'Marcação': 0.15,
+            'Desarme': 0.15,
+            'Passe curto': 0.1,
+            'Passe longo': 0.1,
+            'Visão': 0.05,
+            'Controle de Bola': 0.1,
+            'Drible': 0.1,
+            'Força': 0.05,
+            'Chute': 0.05,
+            'Cabeceio': 0.05,
+            'Velocidade': 0.1,
+            'Técnica': 0.1,
+            'Posicionamento em campo': 0.1,
+            'Aptidão física': 0.1
             },
             'Zagueiro': {
-                'Reflexo': 0.0,
-                'Posicionamento': 0.15,
-                'Marcação': 0.2,
-                'Desarme': 0.2,
-                'Passe': 0.05,
-                'Visão': 0.05,
-                'Controle de Bola': 0.05,
-                'Drible': 0.0,
-                'Força': 0.15,
-                'Chute': 0.05,
-                'Cabeceio': 0.1,
-                'Velocidade': 0.0
+            'Reflexo': 0.0,
+            'Posicionamento de goleiro': 0.0,
+            'Elasticidade': 0.0,
+            'Marcação': 0.2,
+            'Desarme': 0.2,
+            'Passe curto': 0.05,
+            'Passe longo': 0.05,
+            'Visão': 0.05,
+            'Controle de Bola': 0.05,
+            'Drible': 0.0,
+            'Força': 0.15,
+            'Chute': 0.05,
+            'Cabeceio': 0.1,
+            'Velocidade': 0.05,
+            'Técnica': 0.05,
+            'Posicionamento em campo': 0.1,
+            'Aptidão física': 0.1
             },
             'Volante': {
-                'Reflexo': 0.0,
-                'Posicionamento': 0.1,
-                'Marcação': 0.15,
-                'Desarme': 0.15,
-                'Passe': 0.1,
-                'Visão': 0.1,
-                'Controle de Bola': 0.1,
-                'Drible': 0.05,
-                'Força': 0.1,
-                'Chute': 0.05,
-                'Cabeceio': 0.05,
-                'Velocidade': 0.05
+            'Reflexo': 0.0,
+            'Posicionamento de goleiro': 0.0,
+            'Elasticidade': 0.0,
+            'Marcação': 0.15,
+            'Desarme': 0.15,
+            'Passe curto': 0.1,
+            'Passe longo': 0.1,
+            'Visão': 0.1,
+            'Controle de Bola': 0.1,
+            'Drible': 0.05,
+            'Força': 0.1,
+            'Chute': 0.05,
+            'Cabeceio': 0.05,
+            'Velocidade': 0.05,
+            'Técnica': 0.1,
+            'Posicionamento em campo': 0.1,
+            'Aptidão física': 0.1
             },
             'Meia-defensivo': {
-                'Reflexo': 0.0,
-                'Posicionamento': 0.1,
-                'Marcação': 0.1,
-                'Desarme': 0.1,
-                'Passe': 0.15,
-                'Visão': 0.15,
-                'Controle de Bola': 0.1,
-                'Drible': 0.05,
-                'Força': 0.1,
-                'Chute': 0.05,
-                'Cabeceio': 0.05,
-                'Velocidade': 0.05
+            'Reflexo': 0.0,
+            'Posicionamento de goleiro': 0.0,
+            'Elasticidade': 0.0,
+            'Marcação': 0.1,
+            'Desarme': 0.1,
+            'Passe curto': 0.15,
+            'Passe longo': 0.15,
+            'Visão': 0.15,
+            'Controle de Bola': 0.1,
+            'Drible': 0.05,
+            'Força': 0.1,
+            'Chute': 0.05,
+            'Cabeceio': 0.05,
+            'Velocidade': 0.05,
+            'Técnica': 0.1,
+            'Posicionamento em campo': 0.1,
+            'Aptidão física': 0.1
             },
             'Meia-ofensivo': {
-                'Reflexo': 0.0,
-                'Posicionamento': 0.05,
-                'Marcação': 0.0,
-                'Desarme': 0.0,
-                'Passe': 0.2,
-                'Visão': 0.2,
-                'Controle de Bola': 0.15,
-                'Drible': 0.15,
-                'Força': 0.05,
-                'Chute': 0.1,
-                'Cabeceio': 0.05,
-                'Velocidade': 0.05
+            'Reflexo': 0.0,
+            'Posicionamento de goleiro': 0.0,
+            'Elasticidade': 0.0,
+            'Marcação': 0.05,
+            'Desarme': 0.05,
+            'Passe curto': 0.2,
+            'Passe longo': 0.2,
+            'Visão': 0.2,
+            'Controle de Bola': 0.15,
+            'Drible': 0.15,
+            'Força': 0.1,
+            'Chute': 0.1,
+            'Cabeceio': 0.05,
+            'Velocidade': 0.1,
+            'Técnica': 0.1,
+            'Posicionamento em campo': 0.1,
+            'Aptidão física': 0.1
             },
             'Ponta': {
-                'Reflexo': 0.0,
-                'Posicionamento': 0.05,
-                'Marcação': 0.0,
-                'Desarme': 0.0,
-                'Passe': 0.1,
-                'Visão': 0.1,
-                'Controle de Bola': 0.15,
-                'Drible': 0.2,
-                'Força': 0.05,
-                'Chute': 0.15,
-                'Cabeceio': 0.05,
-                'Velocidade': 0.15
+            'Reflexo': 0.0,
+            'Posicionamento de goleiro': 0.0,
+            'Elasticidade': 0.0,
+            'Marcação': 0.05,
+            'Desarme': 0.05,
+            'Passe curto': 0.1,
+            'Passe longo': 0.1,
+            'Visão': 0.1,
+            'Controle de Bola': 0.15,
+            'Drible': 0.2,
+            'Força': 0.1,
+            'Chute': 0.15,
+            'Cabeceio': 0.05,
+            'Velocidade': 0.15,
+            'Técnica': 0.15,
+            'Posicionamento em campo': 0.1,
+            'Aptidão física': 0.1
             },
             'Centroavante': {
-                'Reflexo': 0.0,
-                'Posicionamento': 0.1,
-                'Marcação': 0.0,
-                'Desarme': 0.0,
-                'Passe': 0.05,
-                'Visão': 0.05,
-                'Controle de Bola': 0.1,
-                'Drible': 0.1,
-                'Força': 0.15,
-                'Chute': 0.3,
-                'Cabeceio': 0.1,
-                'Velocidade': 0.05
+            'Reflexo': 0.0,
+            'Posicionamento de goleiro': 0.0,
+            'Elasticidade': 0.0,
+            'Marcação': 0.05,
+            'Desarme': 0.05,
+            'Passe curto': 0.05,
+            'Passe longo': 0.05,
+            'Visão': 0.05,
+            'Controle de Bola': 0.1,
+            'Drible': 0.1,
+            'Força': 0.15,
+            'Chute': 0.3,
+            'Cabeceio': 0.1,
+            'Velocidade': 0.1,
+            'Técnica': 0.1,
+            'Posicionamento em campo': 0.1,
+            'Aptidão física': 0.1
             }
         }
         
@@ -257,13 +316,13 @@ class Player:
         if not weights:
             # Se a posição não estiver definida, usar pesos iguais
             total_strength = sum(self.attributes.values()) / len(self.attributes)
-            return total_strength
+            return min(total_strength, 100)
 
         total_strength = 0
         for attr, value in self.attributes.items():
             weight = weights.get(attr, 0)
             total_strength += value * weight
-        return int(total_strength)
+        return min(int(total_strength), 100)
 
     def train(self, focus):
         # Melhora os atributos com base no foco do treino
