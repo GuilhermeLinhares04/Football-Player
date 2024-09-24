@@ -8,7 +8,7 @@ cursor = conn.cursor()
 
 # -------------------------------------------- Jogador --------------------------------------------
 class Player:
-    def __init__(self, name, nationality, age, position, money_level, team):
+    def __init__(self, name, nationality, age, position, money_level, team, team_strength):
         self.name = name
         self.nationality = nationality
         self.age = age
@@ -18,7 +18,9 @@ class Player:
         self.team = team
         self.popularity = random.randint(0, 100)
         self.relationships = {'Treinador': random.randint(50, 65), 'Amigos': random.randint(0, 100), 'Família': random.randint(40, 100)}
-        self.happiness = (self.relationships['Treinador'] + self.relationships['Amigos'] + self.relationships['Família']) // 3 + random.randint(0, 20)
+        self.happiness = (self.relationships['Treinador'] + self.relationships['Amigos'] + self.relationships['Família']) // 3 + random.randint(0, 10)
+    
+        self.team_strength = team_strength
         
         # Atributos iniciais com base na posição
         if self.position == 'Goleiro':
@@ -333,6 +335,13 @@ class Player:
                 self.attributes[focus] = 100
             if self.strength > 100:
                 self.strength = 100
+                
+    # def calculate_play_chance(self):
+    #     # Calcula a chance de jogar com base na força do jogador e do time
+    #     player_strength = self.strength / 100
+    #     team_strength = self.team_strength / 100
+    #     chance = (player_strength * 0.6) + (team_strength * 0.4)
+    #     return min(chance, 1)
 
     def simulate_season_statistics(self):
         # Simula as estatísticas do jogador para a temporada atual
@@ -506,12 +515,18 @@ class CareerSimulator(tk.Tk):
         cursor.execute("SELECT id FROM countries WHERE name = ?", (self.nationality_var.get(),))
         country_id = cursor.fetchone()
         if country_id:
-            cursor.execute("SELECT name FROM teams WHERE country_id = ?", (country_id[0],))
-            teams = [row[0] for row in cursor.fetchall()]
+            cursor.execute("SELECT name, strength FROM teams WHERE country_id = ?", (country_id[0],))
+            teams = cursor.fetchall()
             if teams:
-                return random.choice(teams)
+                team = random.choice(teams)
+                self.team_strength = team[1]
+                return team[0]
+        self.team_strength = 0
         return "Time Desconhecido"
-
+    
+    def func_team_strength(self):
+        return self.team_strength
+        
     def start_career(self):
         name = self.name_entry.get()
         nationality = self.nationality_entry.get()
@@ -523,7 +538,8 @@ class CareerSimulator(tk.Tk):
         position = self.position_entry.get()
         money_level = self.money_var.get()
         team = self.assign_initial_team()
-        self.player = Player(name, nationality, age, position, money_level, team)
+        team_strength = self.func_team_strength()
+        self.player = Player(name, nationality, age, position, money_level, team, team_strength)
         messagebox.showinfo("Carreira Iniciada", f"Bem-vindo, {self.player.name}! Você começará no time {self.player.team}.")
         self.show_main_menu()
 
@@ -533,7 +549,7 @@ class CareerSimulator(tk.Tk):
             widget.destroy()
         tk.Label(self, text=f"Ano: {self.player.year}", fg="blue").pack()
         tk.Label(self, text=f"Jogador: {self.player.name}, {self.player.age} anos, Força total: {self.player.strength}", fg="green").pack()
-        tk.Label(self, text=f"Time Atual: {self.player.team}", fg="red").pack()
+        tk.Label(self, text=f"Time Atual: {self.player.team}, (Força Atual: {self.player.team_strength})", fg="red").pack()
         tk.Label(self, text=f"Posição: {self.player.position}", fg="purple").pack()
         tk.Label(self, text=f"Dinheiro: {self.player.money}", fg="orange").pack()
         tk.Button(self, text="Avançar Ano", command=self.advance_year).pack()
