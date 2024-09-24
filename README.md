@@ -16,7 +16,7 @@ Funcionalidades atuais e futuras:
 - Com base na sua força e popularidade, o jogador pode ser chamado para representar sua seleção e suas estatísticas também são mostradas ao fim das temporadas.
 - Opção de se aposentar ou se aposentar apenas da seleção
 - A força do jogador diminui enquanto ele fica mais velho, logicamente
-- Base de dados com informações necessárias para times, seleções, patrocínios, competições e o que achar necessário
+- Base de dados com informações necessárias para times, seleções, patrocínios, competições e o que achar necessário <br>
 ~~- Situações que afetam atributos, popularidade e relações~~ (pode ficar muito repetitivo)
 - Gerenciar tempo com relações (namorada, amigos, família e treino do time)
 - Se o jogador tiver namorada, ele pode começar tentar engravidá-la e ter filhos
@@ -36,3 +36,64 @@ Funcionalidades atuais e futuras:
 - Jogador pode requisitar troca de posição
 - Jogador pode requisitar mudança de nacionalidade
 - Jogador pode requisitar mudança de time, seja por empréstimo ou transferência
+- Algoritmo de simulação de temporadas:
+    - A simulação do número de partidas jogadas deve ser feita com base na relação inicial do jogador com o treinador. Inicialmente, o jogador deve ter uma chance menor de participar de cada partida, já que é jovem e sua força não é tão grande. A cada temporada, essa chance deve aumentar ou diminuir com base no desempenho do jogador e na relação com o treinador
+    - A simulação das estatísticas do jogador deve ser feita com base nos atributos do jogador e a força do time. Por exemplo, se o jogador tem um atributo de finalização alto, ele deve ter uma chance maior de marcar gols. Se o time do jogador é fraco, ele deve ter menos chances de marcar gols e mais chances de sofrer gols	
+    - A simulação da nota média deve ser feita com base nas estatísticas do jogador de acordo com sua posição
+    - Felicidade do jogador afeta no desempenho das partidas, quanto mais feliz, melhor pode ser seu desempenho
+    - Quanto maior a nota média, maior a relação com o treinador e consequentemente maior a chance de ser participar de mais partidas
+    ### Estatísticas por Posição
+
+    Para tornar a simulação mais realista, podemos adicionar estatísticas específicas para cada posição. Aqui estão algumas sugestões:
+
+    #### Goleiro
+    - Defesas realizadas
+    - Gols sofridos
+    - Jogos sem sofrer gols
+    - Penalidades defendidas
+    - Saídas do gol bem-sucedidas
+
+    #### Zagueiro
+    - Desarmes realizados
+    - Interceptações
+    - Cortes de bola
+    - Gols marcados
+    - Assistências
+    - Faltas cometidas
+
+    #### Lateral
+    - Desarmes realizados
+    - Interceptações
+    - Cruzamentos bem-sucedidos
+    - Assistências
+    - Gols marcados
+    - Passes precisos
+
+    #### Meio-campista
+    - Passes precisos
+    - Assistências
+    - Gols marcados
+    - Desarmes realizados
+    - Interceptações
+    - Dribles bem-sucedidos
+
+    #### Ponta
+    - Assistências
+    - Gols marcados
+    - Cruzamentos bem-sucedidos
+    - Dribles bem-sucedidos
+    - Passes precisos
+
+    #### Atacante
+    - Gols marcados
+    - Assistências
+    - Finalizações no alvo
+    - Dribles bem-sucedidos
+    - Faltas sofridas
+    - Impedimentos
+
+    Essas estatísticas ajudarão a fornecer uma visão mais detalhada do desempenho do jogador em sua posição específica.
+- Mais atributos a adicionar: Técnica, dividir entre posicionamento do goleiro e posicionamento em campo, dividir em passes longos e passes curtos, aptidão física, elasticidade (para goleiros)
+- Atributos mentais: Determinação (depende das relações do jogador), inteligência, agressividade (afeta na nota média), liderança (chance de ser capitão)
+- Opção para utilizar intensificadores ilegais para melhorar atributos do jogador, mas com riscos de ser pego e punido
+- Mostrar desempenho do time do jogador em competições, como a liga nacional, copas nacionais e internacionais

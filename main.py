@@ -13,10 +13,9 @@ class Player:
         self.nationality = nationality
         self.age = age
         self.position = position
-        self.attributes = {'Reflexo': 0, 'Posicionamento': 0, 'Marcação': 0, 'Desarme': 0, 'Passe': 0, "Visão": 0, 'Controle de Bola': 0, 'Drible': 0, 'Força': 0, 'Chute': 0, 'Cabeceio': 0}
+        self.attributes = {'Reflexo': 0, 'Posicionamento': 0, 'Marcação': 0, 'Desarme': 0, 'Passe': 0, "Visão": 0, 'Controle de Bola': 0, 'Drible': 0, 'Força': 0, 'Chute': 0, 'Cabeceio': 0, 'Velocidade': 0}
         self.money = {'Baixo': random.randint(0, 2000), 'Médio': random.randint(3000, 6000), 'Alto': random.randint(8000, 10000)}[money_level]
         self.team = team
-        self.strength = self.calculate_strength()
         self.popularity = random.randint(0, 100)
         self.relationships = {'Treinador': random.randint(50, 65), 'Amigos': random.randint(0, 100), 'Família': random.randint(40, 100)}
         self.happiness = (self.relationships['Treinador'] + self.relationships['Amigos'] + self.relationships['Família']) // 3 + random.randint(0, 20)
@@ -34,7 +33,8 @@ class Player:
             self.attributes['Visão'] = random.randint(0, 50)
             self.attributes['Controle de Bola'] = random.randint(0, 50)
             self.attributes['Drible'] = random.randint(0, 50)
-        elif self.position == 'Defensor':
+            self.attributes['Velocidade'] = random.randint(0, 50)
+        elif self.position == 'Lateral':
             self.attributes['Marcação'] = random.randint(50, 100)
             self.attributes['Desarme'] = random.randint(50, 100)
             self.attributes['Força'] = random.randint(50, 100)
@@ -46,7 +46,47 @@ class Player:
             self.attributes['Visão'] = random.randint(0, 50)
             self.attributes['Controle de Bola'] = random.randint(0, 50)
             self.attributes['Drible'] = random.randint(0, 50)
-        elif self.position == 'Meio-campista':
+            self.attributes['Velocidade'] = random.randint(50, 100)
+        elif self.position == 'Zagueiro':
+            self.attributes['Marcação'] = random.randint(50, 100)
+            self.attributes['Desarme'] = random.randint(50, 100)
+            self.attributes['Força'] = random.randint(50, 100)
+            self.attributes['Chute'] = random.randint(50, 100)
+            self.attributes['Cabeceio'] = random.randint(50, 100)
+            self.attributes['Reflexo'] = random.randint(0, 50)
+            self.attributes['Posicionamento'] = random.randint(0, 50)
+            self.attributes['Passe'] = random.randint(0, 50)
+            self.attributes['Visão'] = random.randint(0, 50)
+            self.attributes['Controle de Bola'] = random.randint(0, 50)
+            self.attributes['Drible'] = random.randint(0, 50)
+            self.attributes['Velocidade'] = random.randint(0, 50)
+        elif self.position == 'Volante':
+            self.attributes['Marcação'] = random.randint(50, 100)
+            self.attributes['Desarme'] = random.randint(50, 100)
+            self.attributes['Força'] = random.randint(50, 100)
+            self.attributes['Chute'] = random.randint(50, 100)
+            self.attributes['Cabeceio'] = random.randint(50, 100)
+            self.attributes['Reflexo'] = random.randint(0, 50)
+            self.attributes['Posicionamento'] = random.randint(0, 50)
+            self.attributes['Passe'] = random.randint(0, 50)
+            self.attributes['Visão'] = random.randint(0, 50)
+            self.attributes['Controle de Bola'] = random.randint(0, 50)
+            self.attributes['Drible'] = random.randint(0, 50)
+            self.attributes['Velocidade'] = random.randint(0, 50)
+        elif self.position == 'Meia-defensivo':
+            self.attributes['Marcação'] = random.randint(50, 100)
+            self.attributes['Desarme'] = random.randint(50, 100)
+            self.attributes['Força'] = random.randint(50, 100)
+            self.attributes['Chute'] = random.randint(50, 100)
+            self.attributes['Cabeceio'] = random.randint(50, 100)
+            self.attributes['Reflexo'] = random.randint(0, 50)
+            self.attributes['Posicionamento'] = random.randint(0, 50)
+            self.attributes['Passe'] = random.randint(0, 50)
+            self.attributes['Visão'] = random.randint(0, 50)
+            self.attributes['Controle de Bola'] = random.randint(0, 50)
+            self.attributes['Drible'] = random.randint(0, 50)
+            self.attributes['Velocidade'] = random.randint(0, 50)
+        elif self.position == 'Meia-ofensivo':
             self.attributes['Passe'] = random.randint(50, 100)
             self.attributes['Visão'] = random.randint(50, 100)
             self.attributes['Controle de Bola'] = random.randint(50, 100)
@@ -58,7 +98,21 @@ class Player:
             self.attributes['Cabeceio'] = random.randint(0, 50)
             self.attributes['Reflexo'] = random.randint(0, 50)
             self.attributes['Posicionamento'] = random.randint(0, 50)
-        elif self.position == 'Atacante':
+            self.attributes['Velocidade'] = random.randint(0, 50)
+        elif self.position == 'Ponta':
+            self.attributes['Passe'] = random.randint(50, 100)
+            self.attributes['Visão'] = random.randint(50, 100)
+            self.attributes['Controle de Bola'] = random.randint(50, 100)
+            self.attributes['Drible'] = random.randint(50, 100)
+            self.attributes['Chute'] = random.randint(50, 100)
+            self.attributes['Cabeceio'] = random.randint(50, 100)
+            self.attributes['Marcação'] = random.randint(0, 50)
+            self.attributes['Desarme'] = random.randint(0, 50)
+            self.attributes['Força'] = random.randint(0, 50)
+            self.attributes['Reflexo'] = random.randint(0, 50)
+            self.attributes['Posicionamento'] = random.randint(0, 50)
+            self.attributes['Velocidade'] = random.randint(50, 100)
+        elif self.position == 'Centroavante':
             self.attributes['Passe'] = random.randint(50, 100)
             self.attributes['Visão'] = random.randint(50, 100)
             self.attributes['Controle de Bola'] = random.randint(50, 100)
@@ -70,40 +124,146 @@ class Player:
             self.attributes['Força'] = random.randint(0, 50)
             self.attributes['Reflexo'] = random.randint(0, 50)
             self.attributes['Posicionamento'] = random.randint(0, 50)
+            self.attributes['Velocidade'] = random.randint(0, 50)
         
+        self.strength = self.calculate_strength()
+
         # Estatísticas iniciais
         self.statistics = {'Partidas': 0, 'Gols': 0, 'Assistências': 0, 'Nota Média': 0}
         self.yearly_statistics = []
         
         # Escolha do ano inicial
         self.year = 2024
-        
-        # Força inicial de acordo com a idade
-        if self.age < 16:
-            self.strength += random.randint(0, 10)
-        elif self.age >= 16 and self.age < 18:
-            self.strength += random.randint(10, 35)
-        elif self.age >= 18:
-            self.strength += random.randint(20, 50)
 
     def calculate_strength(self):
         # Define os pesos dos atributos com base na posição
-        weights = {
-            'Goleiro': {'Reflexo': 0.3, 'Posicionamento': 0.2, 'Marcação': 0.05, 'Desarme': 0.05, 'Passe': 0.05, 'Visão': 0.05, 'Controle de Bola': 0.05, 'Drible': 0.05, 'Força': 0.1, 'Chute': 0.05, 'Cabeceio': 0.05},
-            
-            'Defensor': {'Reflexo': 0.05, 'Posicionamento': 0.1, 'Marcação': 0.2, 'Desarme': 0.2, 'Passe': 0.05, 'Visão': 0.05, 'Controle de Bola': 0.05, 'Drible': 0.05, 'Força': 0.1, 'Chute': 0.05, 'Cabeceio': 0.1},
-            
-            'Meio-campista': {'Reflexo': 0.05, 'Posicionamento': 0.05, 'Marcação': 0.1, 'Desarme': 0.1, 'Passe': 0.2, 'Visão': 0.2, 'Controle de Bola': 0.1, 'Drible': 0.1, 'Força': 0.05, 'Chute': 0.05, 'Cabeceio': 0.05},
-            
-            'Atacante': {'Reflexo': 0.05, 'Posicionamento': 0.05, 'Marcação': 0.05, 'Desarme': 0.05, 'Passe': 0.1, 'Visão': 0.1, 'Controle de Bola': 0.1, 'Drible': 0.1, 'Força': 0.05, 'Chute': 0.2, 'Cabeceio': 0.15}
+        # Pesos dos atributos por posição
+        ATTRIBUTE_WEIGHTS = {
+            'Goleiro': {
+                'Reflexo': 0.3,
+                'Posicionamento': 0.25,
+                'Marcação': 0.05,
+                'Desarme': 0.05,
+                'Passe': 0.05,
+                'Visão': 0.05,
+                'Controle de Bola': 0.1,
+                'Drible': 0.05,
+                'Força': 0.05,
+                'Chute': 0.05,
+                'Cabeceio': 0.0,
+                'Velocidade': 0.05
+            },
+            'Lateral': {
+                'Reflexo': 0.0,
+                'Posicionamento': 0.1,
+                'Marcação': 0.15,
+                'Desarme': 0.15,
+                'Passe': 0.1,
+                'Visão': 0.05,
+                'Controle de Bola': 0.1,
+                'Drible': 0.1,
+                'Força': 0.05,
+                'Chute': 0.05,
+                'Cabeceio': 0.05,
+                'Velocidade': 0.1
+            },
+            'Zagueiro': {
+                'Reflexo': 0.0,
+                'Posicionamento': 0.15,
+                'Marcação': 0.2,
+                'Desarme': 0.2,
+                'Passe': 0.05,
+                'Visão': 0.05,
+                'Controle de Bola': 0.05,
+                'Drible': 0.0,
+                'Força': 0.15,
+                'Chute': 0.05,
+                'Cabeceio': 0.1,
+                'Velocidade': 0.0
+            },
+            'Volante': {
+                'Reflexo': 0.0,
+                'Posicionamento': 0.1,
+                'Marcação': 0.15,
+                'Desarme': 0.15,
+                'Passe': 0.1,
+                'Visão': 0.1,
+                'Controle de Bola': 0.1,
+                'Drible': 0.05,
+                'Força': 0.1,
+                'Chute': 0.05,
+                'Cabeceio': 0.05,
+                'Velocidade': 0.05
+            },
+            'Meia-defensivo': {
+                'Reflexo': 0.0,
+                'Posicionamento': 0.1,
+                'Marcação': 0.1,
+                'Desarme': 0.1,
+                'Passe': 0.15,
+                'Visão': 0.15,
+                'Controle de Bola': 0.1,
+                'Drible': 0.05,
+                'Força': 0.1,
+                'Chute': 0.05,
+                'Cabeceio': 0.05,
+                'Velocidade': 0.05
+            },
+            'Meia-ofensivo': {
+                'Reflexo': 0.0,
+                'Posicionamento': 0.05,
+                'Marcação': 0.0,
+                'Desarme': 0.0,
+                'Passe': 0.2,
+                'Visão': 0.2,
+                'Controle de Bola': 0.15,
+                'Drible': 0.15,
+                'Força': 0.05,
+                'Chute': 0.1,
+                'Cabeceio': 0.05,
+                'Velocidade': 0.05
+            },
+            'Ponta': {
+                'Reflexo': 0.0,
+                'Posicionamento': 0.05,
+                'Marcação': 0.0,
+                'Desarme': 0.0,
+                'Passe': 0.1,
+                'Visão': 0.1,
+                'Controle de Bola': 0.15,
+                'Drible': 0.2,
+                'Força': 0.05,
+                'Chute': 0.15,
+                'Cabeceio': 0.05,
+                'Velocidade': 0.15
+            },
+            'Centroavante': {
+                'Reflexo': 0.0,
+                'Posicionamento': 0.1,
+                'Marcação': 0.0,
+                'Desarme': 0.0,
+                'Passe': 0.05,
+                'Visão': 0.05,
+                'Controle de Bola': 0.1,
+                'Drible': 0.1,
+                'Força': 0.15,
+                'Chute': 0.3,
+                'Cabeceio': 0.1,
+                'Velocidade': 0.05
+            }
         }
         
-        # Calcula a força do jogador com base nos atributos e pesos
-        total = 0
-        for attribute, value in self.attributes.items():
-            total += value * weights[self.position].get(attribute, 0)
-        
-        return int(total)
+        weights = ATTRIBUTE_WEIGHTS.get(self.position, None)
+        if not weights:
+            # Se a posição não estiver definida, usar pesos iguais
+            total_strength = sum(self.attributes.values()) / len(self.attributes)
+            return total_strength
+
+        total_strength = 0
+        for attr, value in self.attributes.items():
+            weight = weights.get(attr, 0)
+            total_strength += value * weight
+        return int(total_strength)
 
     def train(self, focus):
         # Melhora os atributos com base no foco do treino
@@ -115,91 +275,116 @@ class Player:
             if self.strength > 100:
                 self.strength = 100
 
+    def simulate_season_statistics(self):
+        # Simula as estatísticas do jogador para a temporada atual
+        # Inclui a força do time no cálculo
+        base_matches = random.randint(0, 38)  # Número de partidas na temporada
+
+        # Puxando força do time do banco de dados
+        cursor.execute("SELECT strength FROM teams WHERE name = ?", (self.team,))
+        result = cursor.fetchone()
+        self.team_strength = result[0] if result else print("Time não encontrado.")
+
+        # Normaliza a força do time entre 0 e 1
+        team_strength_normalized = self.team_strength / 100
+
+        performance_factor = (
+            (self.strength * 0.3) +
+            (self.happiness * 0.1) +
+            (self.relationships['Treinador'] * 0.1) +
+            (self.popularity * 0.1) +
+            (team_strength_normalized * 100 * 0.4)
+        ) / 100
+
+        # Determina o número de partidas jogadas
+        matches_played = int(base_matches * (performance_factor + random.uniform(-0.1, 0.1)))
+        matches_played = max(0, min(base_matches, matches_played))
+
+        # Calcula gols e assistências com base nos atributos relevantes
+        if self.position.lower() in ['Centroavante', 'Ponta', 'Meia-ofensivo']:
+            goal_chance = (self.attributes['Chute'] + self.attributes['Força'] * 0.5) / 150
+            assist_chance = (self.attributes['Passe'] + self.attributes['Drible']) / 200
+        elif self.position.lower() in ['Volante', 'Meia-defensivo']:
+            goal_chance = (self.attributes['Chute'] + self.attributes['Força'] * 0.3) / 200
+            assist_chance = (self.attributes['Passe'] + self.attributes['Força'] * 0.2) / 150
+        elif self.position.lower() in ['Zagueiro', 'Lateral']:
+            goal_chance = (self.attributes['Cabeceio'] + self.attributes['Força'] * 0.2) / 250
+            assist_chance = (self.attributes['Passe'] + self.attributes['Velocidade'] * 0.1) / 200
+        else:
+            goal_chance = 0.01
+            assist_chance = 0.01
+
+        # A força do time aumenta as chances de gols e assistências
+        goal_chance *= team_strength_normalized
+        assist_chance *= team_strength_normalized
+
+        goals = 0
+        assists = 0
+        ratings = []
+
+        for _ in range(matches_played):
+            match_performance = performance_factor + random.uniform(-0.2, 0.2)
+            match_performance = max(0, min(1, match_performance))
+
+            # Probabilidade de marcar gol ou assistência em uma partida
+            if random.random() < goal_chance * match_performance:
+                goals += 1
+            if random.random() < assist_chance * match_performance:
+                assists += 1
+
+            # Nota da partida baseada na performance
+            rating = 6 + (match_performance * 4)  # Notas entre 6 e 10
+            ratings.append(rating)
+
+        # Atualiza as estatísticas da temporada
+        self.statistics['Partidas'] += matches_played
+        self.statistics['Gols'] += goals
+        self.statistics['Assistências'] += assists
+        if ratings:
+            average_rating = sum(ratings) / len(ratings)
+            self.statistics['Nota Média'] = round(average_rating, 2)
+        else:
+            self.statistics['Nota Média'] = 0
+
+        # Atualiza a popularidade com base no desempenho
+        self.popularity += int((goals + assists) * 0.5)
+        self.popularity = max(0, min(100, self.popularity))
+
     def advance_year(self):
         self.age += 1
         self.year += 1
+
         # Diminui a força com a idade
         if self.age > random.randint(25, 30):
-            self.strength -= random.randint(0, 5)
-        # Simula as estatísticas da temporada com base na força e posição do jogador
-        partidas = 0
-        gols = 0
-        assistencias = 0
+            decline = random.uniform(0.5, 1.5)
+            self.strength -= decline
+            for attr in self.attributes:
+                self.attributes[attr] -= decline
+                self.attributes[attr] = max(0, self.attributes[attr])
+            self.strength = max(0, self.strength)
 
-        # Simula as estatísticas da temporada com base na força e posição do jogador e do time
-        cursor.execute("SELECT strength FROM teams WHERE name = ?", (self.team,))
-        result = cursor.fetchone()
-        team_strength = result[0] if result else print("Time não encontrado.")
+        # Simula a temporada
+        self.simulate_season_statistics()
 
-        if self.position == 'Goleiro':
-            if self.strength > 50 and self.strength >= team_strength:
-                partidas = random.randint(0, 40)
-                gols = random.randint(0, 2)
-                assistencias = random.randint(0, 5)
-            else:
-                partidas = random.randint(0, 5)
-                gols = random.randint(0, 0)
-                assistencias = random.randint(0, 3)
-                
-        elif self.position == 'Defensor':
-            if self.strength > 50 and self.strength >= team_strength:
-                partidas = random.randint(0, 40)
-                gols = random.randint(0, 5)
-                assistencias = random.randint(0, 10)
-            else:
-                partidas = random.randint(0, 10)
-                gols = random.randint(0, 3)
-                assistencias = random.randint(0, 5)
-                
-        elif self.position == 'Meio-campista':
-            if self.strength > 50 and self.strength >= team_strength:
-                partidas = random.randint(0, 40)
-                gols = random.randint(0, 10)
-                assistencias = random.randint(0, 15)
-            else:
-                partidas = random.randint(0, 20)
-                gols = random.randint(0, 5)
-                assistencias = random.randint(0, 10)
-                
-        elif self.position == 'Atacante':
-            if self.strength >= team_strength:
-                partidas = random.randint(0, 40)
-                gols = random.randint(0, 30)
-                assistencias = random.randint(0, 10)
-            else:
-                partidas = random.randint(0, 20)
-                gols = random.randint(0, 15)
-                assistencias = random.randint(0, 5)
-
-        self.statistics['Partidas'] += partidas
-        self.statistics['Gols'] += gols
-        self.statistics['Assistências'] += assistencias
-        if partidas > 0:
-            if gols > 0 or assistencias > 0:
-                self.statistics['Nota Média'] = min((gols + assistencias) / partidas * 10, 10)
-            else:
-                self.statistics['Nota Média'] = min(self.strength / 10, 10)
-        else:
-            self.statistics['Nota Média'] = 0
-        
-        # Atualiza a popularidade
-        self.popularity += random.randint(-5, 5)
-        self.popularity = max(0, min(100, self.popularity))
-        
-        # Atualiza a felicidade
-        self.happiness += random.randint(-5, 5)
+        # Atualiza a felicidade (pode ser afetada por vários fatores)
+        happiness_change = random.randint(-5, 5)
+        self.happiness += happiness_change
         self.happiness = max(0, min(100, self.happiness))
 
         # Armazena as estatísticas anuais
         self.yearly_statistics.append({
             'Ano': self.year,
-            'Partidas': partidas,
-            'Gols': gols,
-            'Assistências': assistencias,
-            'Nota Média': self.statistics['Nota Média'],
-            'Popularidade': self.popularity,
-            'Felicidade': self.happiness
+            'Partidas': self.statistics['Partidas'],
+            'Gols': self.statistics['Gols'],
+            'Assistências': self.statistics['Assistências'],
+            'Nota Média': self.statistics['Nota Média']
         })
+
+    def __del__(self):
+        # Fecha a conexão com o banco de dados ao destruir o objeto
+        self.conn.close()
+
+
 
     def get_total_statistics(self):
         total_stats = {'Partidas': 0, 'Gols': 0, 'Assistências': 0, 'Nota Média': 0}
@@ -245,7 +430,7 @@ class CareerSimulator(tk.Tk):
         tk.Label(self, text="Posição Inicial:").pack()
         self.position_var = tk.StringVar()
         self.position_entry = tk.ttk.Combobox(self, textvariable=self.position_var)
-        self.position_entry['values'] = ('Goleiro', 'Defensor', 'Meio-campista', 'Atacante')
+        self.position_entry['values'] = ('Goleiro', 'Lateral', 'Zagueiro', 'Volante', 'Meia-defensivo', 'Meia-ofensivo', 'Ponta', 'Centroavante')
         self.position_entry.pack()
 
         # Campo de seleção para dinheiro inicial
@@ -316,15 +501,15 @@ class CareerSimulator(tk.Tk):
     def advance_year(self):
         self.player.advance_year()
         stats = self.player.statistics
+        last_year_stats = self.player.yearly_statistics[-1] if self.player.yearly_statistics else stats
         stats_message = (
-            f"Partidas: {stats['Partidas']}\n"
-            f"Gols: {stats['Gols']}\n"
-            f"Assistências: {stats['Assistências']}\n"
-            f"Nota Média: {stats['Nota Média']}\n"
-            f"Popularidade: {self.player.popularity}\n"
-            f"Felicidade: {self.player.happiness}"
+            f"\nEstatísticas do Ano {last_year_stats['Ano'] - 1}:\n"
+            f"Partidas: {last_year_stats['Partidas']}\n"
+            f"Gols: {last_year_stats['Gols']}\n"
+            f"Assistências: {last_year_stats['Assistências']}\n"
+            f"Nota Média: {last_year_stats['Nota Média']}\n\n"
         )
-        messagebox.showinfo("Ano Avançado", f"Agora é o ano {self.player.year}. Você tem {self.player.age} anos.\n\nEstatísticas totais:\n{stats_message}")
+        messagebox.showinfo("Ano Avançado", f"Agora é o ano {self.player.year}. Você tem {self.player.age} anos.\n{stats_message}\n")
         # Verifica aposentadoria
         if self.player.age >= 35:
             messagebox.showinfo("Aposentadoria", "Você se aposentou da carreira de jogador!")
@@ -345,7 +530,7 @@ class CareerSimulator(tk.Tk):
         yearly_stats_message = "\n".join(
             [f"Ano {stats['Ano'] - 1}: Partidas: {stats['Partidas']}, Gols: {stats['Gols']}, Assistências: {stats['Assistências']}, Nota Média: {stats['Nota Média']}" for stats in self.player.yearly_statistics]
         )
-        messagebox.showinfo("Estatísticas", f"Estatísticas Totais:\n{total_stats_message}\nEstatísticas Anuais:\n{yearly_stats_message}")
+        messagebox.showinfo("Estatísticas", f"Estatísticas Totais:\n{total_stats_message}\n\nEstatísticas Anuais:\n{yearly_stats_message}")
 
     def show_relationships(self):
         relationships = self.player.relationships
