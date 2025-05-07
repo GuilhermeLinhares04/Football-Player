@@ -1,104 +1,133 @@
-# Football-Player
-Text-based football player career simulator
+### 🧍 Criação e Personalização do Jogador
 
-Funcionalidades atuais e futuras:
-- Escolher nome do jogador, nacionalidade, idade, posição inicial e quantidade de dinheiro inicial (pequeno, médio ou baixo)
-- Força inicial escolhida aleatoriamente, com base na posição escolhida e na idade inicial
-- Popularidade escolhida aleatoriamente no início
-- Ano inicial pode ser escolhido pelo jogador
-- Time inicial é escolhido com base na força inicial e a nacionalidade inicial, com uma pequena chance de ser um clube do exterior
-- Escolher foco dos treinos (força, chute, cabeceio, e o que mais achar relevante para a posição), isto afetar no aumento ou diminuição da força ao decorrer das temporadas
-- O usuário avança um ano na carreira do jogador e uma tabela com estatísticas é mostrada para ele após o fim de certo ano, com número de partidas, gols, assistências, nota média e o desempenho dos times nas competições (lembrando que tudo isso é simulado com base na força do time e do jogador criado)
-- A cada fim de temporada também, é mostrado um quadro de proposta de outros times, seja de empréstimo ou transferência, claro com base nas estatísticas do jogador, na sua força atual e na sua popularidade
-- Opção para escolher estilo de vida (básico, médio ou alto) que afetará na quantidade de dinheiro do jogador e também na sua popularidade
-- Relações do jogador com treinador, amigos (aleatório quando iniciar a carreira), namorada ou noiva (se ou quando tiver), patrocinadores, treinador da seleção e família
-- Jogador pode receber propostas de patrocínio com base na sua popularidade, e estas ajudam a obter mais dinheiro
-- Com base na sua força e popularidade, o jogador pode ser chamado para representar sua seleção e suas estatísticas também são mostradas ao fim das temporadas.
-- Opção de se aposentar ou se aposentar apenas da seleção
-- A força do jogador diminui enquanto ele fica mais velho, logicamente
-- Base de dados com informações necessárias para times, seleções, patrocínios, competições e o que achar necessário <br>
-~~- Situações que afetam atributos, popularidade e relações~~ (pode ficar muito repetitivo)
-- Gerenciar tempo com relações (namorada, amigos, família e treino do time)
-- Se o jogador tiver namorada, ele pode começar tentar engravidá-la e ter filhos
-- Caso o jogador invista muito tempo no seu treino, por exemplo, ele pode ter problemas com a namorada, amigos e família, o que pode afetar na sua felicidade. O mesmo acontece se ele investir muito tempo com a namorada, amigos e família, seu treinador pode não gostar e isso afetar no seu desempenho em campo
-- A família é importante quando um jogador decidir aceitar uma proposta de patrocínio ou ir a outro clube
-- Barra de felicidade do jogador que também influencia em seu desempenho em campo. Ela pode ser afetada pelo seu salário, relações e outros
-- Adicionar atributos do jogador para dar norte à escolha dos treinos
-- Premiações individuais a cada fim de temporada, com base no seu desempenho e popularidade
-- Investimentos para administrar o dinheiro
-- Comprar empresários e personal trainers, para receber boas propostas e melhorar sua força geral
-- Seleções sub-20, sub-17 e sub-23 (olímpiadas)
-- Central de mensagens para receber propostas de times, patrocínios, seleções e outras informações
-- Escolher personalidade do jogador (ou ser aleatória), que afetará em seus atributos mentais, relações, popularidade e desenvolvimento
-- Instalaçoes dos clubes influenciam no desenvolvimento do jogador
-- Atributos da namorada, como escândalo, oportunismo, amor, beleza, que afeteam na popularidade, felicidade do jogador e também seus gastos
-- Gestão de finanças do jogador, com gastos de estilo de vida, investimentos, salário, prêmios e patrocínios
-- Jogador pode requisitar troca de posição
-- Jogador pode requisitar mudança de nacionalidade
-- Jogador pode requisitar mudança de time, seja por empréstimo ou transferência
-- Algoritmo de simulação de temporadas:
-    - A simulação do número de partidas jogadas deve ser feita com base na relação inicial do jogador com o treinador. Inicialmente, o jogador deve ter uma chance menor de participar de cada partida, já que é jovem e sua força não é tão grande. A cada temporada, essa chance deve aumentar ou diminuir com base no desempenho do jogador e na relação com o treinador
-    - A simulação das estatísticas do jogador deve ser feita com base nos atributos do jogador e a força do time. Por exemplo, se o jogador tem um atributo de finalização alto, ele deve ter uma chance maior de marcar gols. Se o time do jogador é fraco, ele deve ter menos chances de marcar gols e mais chances de sofrer gols	
-    - A simulação da nota média deve ser feita com base nas estatísticas do jogador de acordo com sua posição
-    - Felicidade do jogador afeta no desempenho das partidas, quanto mais feliz, melhor pode ser seu desempenho
-    - Quanto maior a nota média, maior a relação com o treinador e consequentemente maior a chance de ser participar de mais partidas
-    ### Estatísticas por Posição
+* Escolher nome, nacionalidade, idade, posição inicial
+* Escolher quantidade de dinheiro inicial (baixo, médio, alto)
+* Força inicial aleatória baseada na posição e idade
+* Popularidade inicial aleatória (com base na popularidade do clube e nacionalidade)
+* Escolher ano inicial da carreira
+* Escolher personalidade (ou aleatória) que afeta atributos mentais, relações, popularidade e desenvolvimento
+* Selecionar estilo de vida (básico, médio, alto)
 
-    Para tornar a simulação mais realista, podemos adicionar estatísticas específicas para cada posição. Aqui estão algumas sugestões:
+---
 
-    #### Goleiro
-    - Defesas realizadas
-    - Gols sofridos
-    - Jogos sem sofrer gols
-    - Penalidades defendidas
-    - Saídas do gol bem-sucedidas
+### 📊 Atributos e Desenvolvimento
 
-    #### Zagueiro
-    - Desarmes realizados
-    - Interceptações
-    - Cortes de bola
-    - Gols marcados
-    - Assistências
-    - Faltas cometidas
+* Todos os atributos são medidos de 0 a 100 (inclusive times, nações e funcionários)
+* Atributos principais: força, chute, cabeceio, etc.
+* Atributos adicionais: técnica, posicionamento (goleiro e linha), passes longos e curtos, aptidão física, elasticidade
+* Atributos mentais: determinação, inteligência, agressividade, liderança
+* Treinamentos afetam atributos (foco de treino)
+* Contratar personal trainers para acelerar desenvolvimento
+* Atributos físicos diminuem com o avanço da idade
+* Intensificadores ilegais (com riscos)
 
-    #### Lateral
-    - Desarmes realizados
-    - Interceptações
-    - Cruzamentos bem-sucedidos
-    - Assistências
-    - Gols marcados
-    - Passes precisos
+---
 
-    #### Meio-campista
-    - Passes precisos
-    - Assistências
-    - Gols marcados
-    - Desarmes realizados
-    - Interceptações
-    - Dribles bem-sucedidos
+### Base de Dados (Todos os atributos são de 0 a 100)
 
-    #### Ponta
-    - Assistências
-    - Gols marcados
-    - Cruzamentos bem-sucedidos
-    - Dribles bem-sucedidos
-    - Passes precisos
+* Clubes: id, nome, força, id nação, id liga, atributo finanças, atributo instalações, atributo popularidade
+* Nações: id, nome, força, atributo popularidade, id do continente, atributo de dinamismo (feito para mudar formatos de competições da nação ou criar novas competições)
+* Continentes: id, nome
+* Competições: id, nome, atributo popularidade, número de clubes participantes, id do formato, id da nação (0 se for competição continental), id do continente (0 se for competição mundial)
+* Patrocínio: id, nome, atributo finanças, atributo popularidade, área de atuação (esporte, moda, etc.)
+* Empresários: id, nome, atributo finanças, atributo controvérsia, atributo negociação
 
-    #### Atacante
-    - Gols marcados
-    - Assistências
-    - Finalizações no alvo
-    - Dribles bem-sucedidos
-    - Faltas sofridas
-    - Impedimentos
+---
 
-    Essas estatísticas ajudarão a fornecer uma visão mais detalhada do desempenho do jogador em sua posição específica.
-- Mais atributos a adicionar: Técnica, dividir entre posicionamento do goleiro e posicionamento em campo, dividir em passes longos e passes curtos, aptidão física, elasticidade (para goleiros)
-- Atributos mentais: Determinação (depende das relações do jogador), inteligência, agressividade (afeta na nota média), liderança (chance de ser capitão)
-- Opção para utilizar intensificadores ilegais para melhorar atributos do jogador, mas com riscos de ser pego e punido
-- Mostrar desempenho do time do jogador em competições, como a liga nacional, copas nacionais e internacionais
-- Interações com o treinador, como pedir renovação de contrato, mais tempo de jogo, mudança de posição, transferência, empréstimo, entre outros
-- Simulação do mundo do futebol a partir do ano escolhido, com base na força dos times e eventos aleatórios
-- Simular mundo do futebol caso o ano escolhido seja diferente de 2024. Quando mais distante do ano atual, mais diferente será o mundo do futebol
-- Relação com a torcida do time, que pode afetar na popularidade do jogador, nas propostas de patrocínio, na felicidade e no desempenho em campo
-- Relação com colegas de time, que pode afetar na popularidade, felicidade e desempenho em campo
+### Formato de Competições (ser programado separadamente e com id para indicar na base de dados)
+
+* Ligas:
+    * Pontos corridos ida e volta
+    * Pontos corridos apenas ida
+    * Pontos corridos ida, volta e mais um turno
+    * Pontos corridos ida e volta com playoffs ida e volta para decidir campeão
+    * Pontos corridos apenas ida com playoffs para decidir campeão
+    * Pontos corridos ida e volta com playoffs apenas ida para decidir campeão
+    * Pontos corridos apenas ida com playoffs apenas ida para decidir campeão
+    * Pontos corridos ida e volta seguido de fase de grupos (um grupo para decidir o campeão e outro para decidir rebaixamento)
+* Copas:
+    * Mata-mata (ida e volta)
+    * Mata-mata (apenas ida)
+    * Grupos com mata-mata (grupos ida e volta, mata-mata ida e volta e final em jogo único)
+    * Grupos com mata-mata (grupos ida e volta, mata-mata ida e volta e final ida e volta)
+    * Grupos com mata-mata (grupos apenas ida, mata-mata apenas ida)
+    * Fase de liga com mata-mata (8 partidas na liga e final em jogo único)
+
+---
+
+### ⚽ Carreira e Jogo
+
+* Time inicial baseado na nacionalidade (com chance de clube estrangeiro)
+* Simulação por temporada com estatísticas: partidas, gols, assistências, nota média, desempenho do time
+* Estatísticas específicas por posição (goleiro, zagueiro, lateral, etc.)
+* Felicidade influencia desempenho
+* Jogador pode requisitar:
+  * Troca de posição
+  * Mudança de time (empréstimo ou transferência)
+  * Mudança de nacionalidade (para ser possível, precisa estar a um determinado tempo no país em questão)
+* Premiações individuais com base em desempenho
+* Convocações para seleções (sub-17, sub-20, sub-23 (Olímpiadas, com pequena chance de ser convocado com mais de 23 anos dependendo de sua força e popularidade), principal)
+* Aposentadoria da seleção ou total
+* Algoritmo de simulação:
+  * Participação em jogos com base na relação com treinador e desempenho
+  * Estatísticas baseadas nos atributos do jogador e força do time
+  * Nota média impacta relação com o treinador
+* Mostrar desempenho do clube em ligas, copas nacionais e internacionais
+* Ano padrão da base de dados é 2025, caso seja escolhido um ano diferente, o jogo simula os anos restantes até 2025 (ex: se o jogador começa em 2020, o jogo simula o mundo do futebol 5 anos para chegar a 2025, ou se quiser começar em 2030, o jogo simula os anos de 2025 a 2030)
+* Mundo do futebol evolui conforme o tempo passa:
+  * Alteração de atributos dos clubes
+  * Alteração de atributos das seleções
+  * Alteração em competições (criação de novas competições, alteração de formato, etc.)
+
+---
+
+### 💼 Carreira Profissional e Finanças
+
+* Receber propostas de:
+  * Clubes (transferência ou empréstimo)
+  * Patrocínios (com base na popularidade do jogador, estatísticas e estilo de vida)
+* Gerenciar finanças:
+  * Estilo de vida impacta gastos e popularidade
+  * Receitas: salário, prêmios, patrocínios
+  * Investimentos diversos
+* Contratar empresários para obter melhores propostas
+* Central de mensagens com ofertas e eventos
+
+---
+
+### 🤝 Relações e Vida Pessoal
+
+* Relações com:
+  * Treinador
+  * Família
+  * Namorada/noiva (se tiver)
+  * Amigos
+  * Patrocinadores
+  * Torcida
+  * Colegas de time
+* Gerenciar tempo entre treino e relações (impacta felicidade e desempenho)
+    * O jogador recebe um número de horas por dia para treinar e se relacionar, e o jogador pode escolher como dividir esse tempo entre treino e relações (ex: 4 horas de treino e 2 horas com a namorada ou 6 horas de treino e 0 horas com a namorada)
+* Possibilidade de ter filhos com a namorada
+* Felicidade afetada por salário, relações, estilo de vida, desempenho
+* Família influencia decisões de carreira (mudança de clube, patrocínio)
+* Namorada com atributos que impactam felicidade, gastos e popularidade (escândalo, oportunismo, amor, beleza)
+
+---
+
+### 📈 Popularidade e Reputação
+
+* Popularidade inicial aleatória e evolutiva
+* Afetada por desempenho, relações, estilo de vida, escândalos e clube
+* Impacta propostas de patrocínio, convocações e transferências
+* Relação com torcida afeta popularidade, desempenho e felicidade
+
+---
+
+### 💬 Interações e Sistema Social
+
+* Central de mensagens com propostas e novidades
+* Diálogos com treinador (pedir mais tempo, mudança de posição, renovação de contrato etc.)
+* Relação com colegas de time (amizade, rivalidade, respeito), influencia na felicidade e desempenho
+* Interações com torcedores (fotos, autógrafos, entrevistas)
+
+---
